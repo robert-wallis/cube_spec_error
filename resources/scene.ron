@@ -1,0 +1,65 @@
+#![enable(implicit_some)]
+Prefab (
+    entities: [
+        (data: (light: (ambient_color: ((0.1, 0.1, 0.1, 1.)) ) ) ),
+        (
+            data: (
+                gltf: File("cube.gltf", GltfSceneFormat, (
+                    load_animations: false,
+                    flip_v_coord: true,
+                )),
+                tag: (),
+            )
+        ),
+        (
+            parent: 1,
+            data: (transform: (), fly_tag: ()),
+        ),
+        (
+            parent: 2,
+            data: (
+                transform: (
+                    translation: (0., 0., 5.),
+                ),
+                camera: Perspective((
+                    aspect: 1.3333,
+                    fovy: 45.0,
+                    znear: 0.1,
+                    zfar: 2000.,
+                )),
+                light: (
+                    light: Point((
+                        intensity: 10.,
+                        color: (1.0, 1.0, 1.0, 1.0),
+                    ))
+                )
+            )
+        ),
+        (
+            data: (
+                transform: (
+                    translation: (-3.0, 0.0, -3.0),
+                ),
+                light: (
+                    light: Point((
+                        intensity: 10.,
+                        color: (1.0, 0.8, 0.8, 1.0),
+                    ))
+                )
+            )
+        ),
+        (
+            data: (
+                transform: (
+                    translation: (3.0, 0.0, 3.0),
+                ),
+                light: (
+                    light: Point((
+                        intensity: 10.,
+                        color: (0.8, 0.8, 1.0, 1.0),
+                    ))
+                )
+            )
+        ),
+    ],
+)
